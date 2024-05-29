@@ -1,6 +1,10 @@
+locals {
+  tags = var.common_tags
+}
+
 resource "azurerm_resource_group" "infrastructure_resource_group" {
   name     = "${var.product}-infra-${var.env}"
   location = var.location
 
-  tags = module.tags.common_tags
+  tags = local.tags
 }

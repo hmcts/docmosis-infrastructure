@@ -1,4 +1,4 @@
-# variable "subscription" {}
+variable "subscription" {}
 
 variable "product" {
   description = "The name of your application"
@@ -14,9 +14,8 @@ variable "location" {
   default     = "UK South"
 }
 
-variable "builtFrom" {
-	description = "The repository in GitHub from which the resource is built."
-	default     = "https://github.com/hmcts/rdo-docmosis"
+variable "common_tags" {
+  type = map(string)
 }
 
 variable "jenkins_AAD_objectId" {
