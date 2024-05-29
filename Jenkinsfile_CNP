@@ -6,8 +6,4 @@ def branchesToSync = ['ithc', 'perftest', 'demo']
 
 withInfraPipeline(product) {
   syncBranchesWithMaster(branchesToSync)
-
-	afterSuccess('checkout') {
-    dir('infrastructure')
-  }
 }
