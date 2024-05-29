@@ -12,8 +12,14 @@ module "application_insights" {
   daily_data_cap_in_gb = var.daily_data_cap_in_gb
 }
 
-resource "azurerm_key_vault_secret" "appInsights-InstrumentationKey" {
+resource "azurerm_key_vault_secret" "appinsights_instrumentation_key" {
   name         = "appInsights-InstrumentationKey"
   value        = module.application_insights.instrumentation_key
+  key_vault_id = module.vault.key_vault_id
+}
+
+resource "azurerm_key_vault_secret" "appinsights_connection_string" {
+  name = "appinsights-connection-string"
+  value = module.application_insights.connection_string
   key_vault_id = module.vault.key_vault_id
 }
