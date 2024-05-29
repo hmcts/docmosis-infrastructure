@@ -3,7 +3,7 @@ locals {
 }
 
 resource "azurerm_resource_group" "infrastructure_resource_group" {
-  name     = "${var.product}-infra-${var.env}"
+  name     = "${var.product}-infrastructure-${var.env}"
   location = var.location
 
   tags = local.tags
