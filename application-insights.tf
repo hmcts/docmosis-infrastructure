@@ -13,7 +13,7 @@ module "application_insights" {
 }
 
 resource "azurerm_key_vault_secret" "appinsights_instrumentation_key" {
-  name         = "appInsights-InstrumentationKey"
+  name         = "appinsights-instrumentation-key"
   value        = module.application_insights.instrumentation_key
   key_vault_id = module.vault.key_vault_id
 }
