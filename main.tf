@@ -8,3 +8,8 @@ resource "azurerm_resource_group" "infrastructure_resource_group" {
 
   tags = local.tags
 }
+
+import {
+  to = azurerm_resource_group.infrastructure_resource_group
+  id = "/subscriptions/****/resourceGroups/docmosis-infrastructure-aat"
+}
