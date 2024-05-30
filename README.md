@@ -1,2 +1,6 @@
 # docmosis-infrastructure
-This repo holds the IAC for any infrastructure related to Docmosis
+
+This repository contains the infra components per Environment for Docmosis.
+
+- Application Insights
+- Azure Key Vault

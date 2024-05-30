@@ -1,0 +1,9 @@
+#!groovy
+@Library("Infrastructure")
+
+def product = "docmosis"
+def branchesToSync = ['ithc', 'perftest', 'demo']
+
+withInfraPipeline(product) {
+  syncBranchesWithMaster(branchesToSync)
+}
