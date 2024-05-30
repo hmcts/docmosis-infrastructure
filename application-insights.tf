@@ -19,7 +19,7 @@ resource "azurerm_key_vault_secret" "appinsights_instrumentation_key" {
 }
 
 resource "azurerm_key_vault_secret" "appinsights_connection_string" {
-  name = "appinsights-connection-string"
-  value = module.application_insights.connection_string
+  name         = "appinsights-connection-string"
+  value        = module.application_insights.connection_string
   key_vault_id = module.vault.key_vault_id
 }
