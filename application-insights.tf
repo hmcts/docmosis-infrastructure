@@ -10,6 +10,8 @@ module "application_insights" {
   common_tags = local.tags
 
   daily_data_cap_in_gb = var.daily_data_cap_in_gb
+
+  alert_limit_reached = var.alert_limit_reached
 }
 
 resource "azurerm_key_vault_secret" "appinsights_instrumentation_key" {
