@@ -6,6 +6,7 @@ module "vault" {
   object_id                            = var.jenkins_AAD_objectId
   resource_group_name                  = azurerm_resource_group.infrastructure_resource_group.name
   product_group_object_id              = "e7ea2042-4ced-45dd-8ae3-e051c6551789" # DTS Platform Operations
+  create_managed_identity              = true
   common_tags                          = local.tags
 }
 
