@@ -8,11 +8,11 @@ terraform {
     }
     azuread = {
       source  = "hashicorp/azuread"
-      version = "2.50.0"
+      version = "2.53.0"
     }
   }
 
-	required_version = ">= 1.1.7"
+  required_version = ">= 1.1.7"
 }
 
 provider "azurerm" {
