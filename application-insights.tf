@@ -1,17 +1,13 @@
 module "application_insights" {
   source = "git@github.com:hmcts/terraform-module-application-insights?ref=main"
 
-  env     = var.env
-  product = var.product
-  name    = var.product
-
-  resource_group_name = azurerm_resource_group.infrastructure_resource_group.name
-
-  common_tags = local.tags
-
+  env                  = var.env
+  product              = var.product
+  name                 = var.product
+  resource_group_name  = azurerm_resource_group.infrastructure_resource_group.name
+  common_tags          = local.tags
   daily_data_cap_in_gb = var.daily_data_cap_in_gb
-
-  alert_limit_reached = var.alert_limit_reached
+  alert_limit_reached  = var.alert_limit_reached
 }
 
 resource "azurerm_key_vault_secret" "appinsights_instrumentation_key" {
@@ -23,5 +19,31 @@ resource "azurerm_key_vault_secret" "appinsights_instrumentation_key" {
 resource "azurerm_key_vault_secret" "appinsights_connection_string" {
   name         = "appinsights-connection-string"
   value        = module.application_insights.connection_string
+  key_vault_id = module.vault.key_vault_id
+}
+
+module "application_insights_preview" {
+  count = var.env == "aat" ? 1 : 0
+
+  source = "git@github.com:hmcts/terraform-module-application-insights?ref=main"
+
+  env                  = "preview"
+  product              = var.product
+  name                 = var.product
+  resource_group_name  = azurerm_resource_group.infrastructure_resource_group.name
+  common_tags          = local.tags
+  daily_data_cap_in_gb = var.daily_data_cap_in_gb
+  alert_limit_reached  = var.alert_limit_reached
+}
+
+resource "azurerm_key_vault_secret" "preview_appinsights_instrumentation_key" {
+  name         = "appinsights-instrumentation-key"
+  value        = module.application_insights.instrumentation_key
+  key_vault_id = module.vault.key_vault_id
+}
+
+resource "azurerm_key_vault_secret" "preview_appinsights_connection_string" {
+  name         = "appinsights-connection-string"
+  value        = module.application_insights_preview.connection_string
   key_vault_id = module.vault.key_vault_id
 }
