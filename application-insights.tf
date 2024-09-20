@@ -37,12 +37,16 @@ module "application_insights_preview" {
 }
 
 resource "azurerm_key_vault_secret" "preview_appinsights_instrumentation_key" {
+  count = var.env == "aat" ? 1 : 0
+
   name         = "appinsights-instrumentation-key"
   value        = module.application_insights.instrumentation_key
   key_vault_id = module.vault.key_vault_id
 }
 
 resource "azurerm_key_vault_secret" "preview_appinsights_connection_string" {
+  count = var.env == "aat" ? 1 : 0
+
   name         = "appinsights-connection-string"
   value        = module.application_insights_preview.connection_string
   key_vault_id = module.vault.key_vault_id
