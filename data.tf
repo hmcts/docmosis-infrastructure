@@ -17,17 +17,20 @@ data "azurerm_subnet" "jenkins_subnet" {
 }
 
 data "azurerm_virtual_network" "aks_vnet" {
+  provider            = azurerm.aks
   name                = var.env == "sandbox" ? "cft-sbox-vnet" : "cft-${var.env}-vnet"
   resource_group_name = var.env == "sandbox" ? "cft-sbox-network-rg" : "cft-${var.env}-network-rg"
 }
 
 data "azurerm_subnet" "aks_00_subnet" {
+  provider             = azurerm.aks
   name                 = "aks-00"
   virtual_network_name = data.azurerm_virtual_network.aks_vnet.name
   resource_group_name  = data.azurerm_virtual_network.aks_vnet.resource_group_name
 }
 
 data "azurerm_subnet" "aks_01_subnet" {
+  provider             = azurerm.aks
   name                 = "aks-01"
   virtual_network_name = data.azurerm_virtual_network.aks_vnet.name
   resource_group_name  = data.azurerm_virtual_network.aks_vnet.resource_group_name
