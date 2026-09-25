@@ -4,7 +4,7 @@ data "azurerm_user_assigned_identity" "jenkins" {
 }
 
 data "azurerm_virtual_network" "mgmt_vnet" {
-  name                = var.env == "sandbox" ? "cft-ptl-sbox-vnet" : "cft-ptl-vnet"
+  name                = var.env == "sandbox" ? "cft-ptlsbox-vnet" : "cft-ptl-vnet"
   resource_group_name = var.env == "sandbox" ? "cft-ptlsbox-network-rg" : "cft-ptl-network-rg"
 }
 
