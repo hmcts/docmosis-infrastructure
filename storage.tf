@@ -12,6 +12,8 @@ module "this" {
     access_type = "private"
   }]
 
+  sa_subnets = [data.azurerm_subnet.jenkins_subnet.id]
+
   common_tags = var.common_tags
 
   managed_identity_object_id = module.vault.managed_identity_objectid[0]
