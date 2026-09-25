@@ -10,7 +10,7 @@ module "this" {
 
   common_tags = var.common_tags
 
-  managed_identity_object_id = module.vault.managed_identity_id[0]
+  managed_identity_object_id = module.vault.managed_identity_objectid[0]
 
   role_assignments = [
     "Storage Blob Data Reader"
