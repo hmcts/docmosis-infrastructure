@@ -37,3 +37,13 @@ variable "alert_limit_reached" {
   type        = bool
   default     = false
 }
+
+variable "account_replication_type" {
+  description = "The replication type for the storage account"
+  default     = "LRS"
+}
+
+variable "account_kind" {
+  description = "The kind of the storage account"
+  default     = "StorageV2"
+}
