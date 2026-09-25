@@ -1,4 +1,5 @@
 module "this" {
+  count                    = var.env == "sbox" ? 1 : 0
   source                   = "git@github.com:hmcts/cnp-module-storage-account?ref=4.x"
   env                      = var.env
   storage_account_name     = "${var.product}${var.env}sa"
