@@ -2,7 +2,7 @@ module "vault" {
   source                       = "git@github.com:hmcts/cnp-module-key-vault?ref=DTSPO-31965/remove-jenkins-ptl-access"
   name                         = "${var.product}-infra-${var.env}"
   product                      = var.product
-  env                          = var.env
+  env                          = var.env == "sandbox" ? "sbox" : var.env
   jenkins_object_id            = data.azurerm_user_assigned_identity.jenkins.principal_id
   object_id                    = var.jenkins_AAD_objectId
   resource_group_name          = azurerm_resource_group.infrastructure_resource_group.name
