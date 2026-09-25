@@ -12,7 +12,7 @@ module "this" {
     access_type = "private"
   }]
 
-  sa_subnets = [data.azurerm_subnet.jenkins_subnet.id]
+  sa_subnets = [data.azurerm_subnet.jenkins_subnet.id, data.azurerm_subnet.aks_00_subnet.id, data.azurerm_subnet.aks_01_subnet.id]
 
   common_tags = var.common_tags
 
