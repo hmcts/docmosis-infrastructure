@@ -8,6 +8,8 @@ module "this" {
   account_kind             = var.account_kind
   account_replication_type = var.account_replication_type
 
+  common_tags = var.common_tags
+
   managed_identity_object_id = module.vault.managed_identity_id
 
   role_assignments = [
