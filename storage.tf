@@ -7,7 +7,10 @@ module "this" {
   location                 = var.location
   account_kind             = var.account_kind
   account_replication_type = var.account_replication_type
-  containers               = ["templates", "images"]
+  containers = [{
+    name        = "templates"
+    access_type = "private"
+  }]
 
   common_tags = var.common_tags
 
