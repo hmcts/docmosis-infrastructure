@@ -44,7 +44,7 @@ data "azurerm_virtual_network" "vpn_vnet" {
 
 data "azurerm_subnet" "vpn_subnet" {
   provider             = azurerm.vpn
-  name                 = "subnet-vpn-outside"
+  name                 = "sub-vpn-outside"
   virtual_network_name = data.azurerm_virtual_network.vpn_vnet.name
   resource_group_name  = data.azurerm_virtual_network.vpn_vnet.resource_group_name
 }
