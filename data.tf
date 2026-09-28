@@ -35,3 +35,16 @@ data "azurerm_subnet" "aks_01_subnet" {
   virtual_network_name = data.azurerm_virtual_network.aks_vnet.name
   resource_group_name  = data.azurerm_virtual_network.aks_vnet.resource_group_name
 }
+
+data "azurerm_virtual_network" "vpn_vnet" {
+  provider            = azurerm.vpn
+  name                = "mfmt-vpn-2-vnet"
+  resource_group_name = "mgmt-vpn-2-mgmt"
+}
+
+data "azurerm_subnet" "vpn_subnet" {
+  provider             = azurerm.vpn
+  name                 = "subnet-vpn-outside"
+  virtual_network_name = data.azurerm_virtual_network.vpn_vnet.name
+  resource_group_name  = data.azurerm_virtual_network.vpn_vnet.resource_group_name
+}
