@@ -38,7 +38,7 @@ data "azurerm_subnet" "aks_01_subnet" {
 
 data "azurerm_virtual_network" "vpn_vnet" {
   provider            = azurerm.vpn
-  name                = "mfmt-vpn-2-vnet"
+  name                = "mgmt-vpn-2-vnet"
   resource_group_name = "mgmt-vpn-2-mgmt"
 }
 
