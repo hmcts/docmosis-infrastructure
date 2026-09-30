@@ -47,3 +47,11 @@ variable "account_kind" {
   description = "The kind of the storage account"
   default     = "StorageV2"
 }
+
+variable "vnet_address_space" {
+  description = "The address space for the virtual network"
+}
+
+variable "subnet1_address_prefix" {
+  description = "The address prefix for the first subnet"
+}
