@@ -7,10 +7,10 @@ module "networking" {
   component   = "network"
 
   vnets = {
-    vnet1 = {
+    vnet = {
       address_space = [var.vnet_address_space]
       subnets = {
-        subnet1 = {
+        private-endpoints = {
           address_prefixes = [var.subnet1_address_prefix]
         }
       }
