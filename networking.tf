@@ -4,7 +4,7 @@ module "networking" {
   env         = var.env
   product     = var.product
   common_tags = var.common_tags
-  component   = ""
+  component   = "network"
 
   vnets = {
     vnet1 = {
