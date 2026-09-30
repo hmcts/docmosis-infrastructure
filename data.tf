@@ -10,7 +10,7 @@ data "azurerm_virtual_network" "mgmt_vnet" {
 }
 
 data "azurerm_subnet" "jenkins_subnet" {
-  provider             = azurerm.mgmt
+  provider             = azurerm.aks
   name                 = "iaas"
   virtual_network_name = data.azurerm_virtual_network.mgmt_vnet.name
   resource_group_name  = data.azurerm_virtual_network.mgmt_vnet.resource_group_name
