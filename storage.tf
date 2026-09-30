@@ -12,7 +12,8 @@ module "this" {
     access_type = "private"
   }]
 
-  sa_subnets = [data.azurerm_subnet.jenkins_subnet.id, data.azurerm_subnet.aks_00_subnet.id, data.azurerm_subnet.aks_01_subnet.id, data.azurerm_subnet.vpn_subnet.id]
+  private_endpoint_subnet_id = data.azurerm_subnet.private_endpoints.id
+  sa_subnets                 = [data.azurerm_subnet.jenkins_subnet.id, data.azurerm_subnet.aks_00_subnet.id, data.azurerm_subnet.aks_01_subnet.id]
 
   common_tags = var.common_tags
 
