@@ -1,6 +1,6 @@
 module "this" {
   count                    = var.env == "sandbox" ? 1 : 0
-  source                   = "git@github.com:hmcts/cnp-module-storage-account?ref=DTSPO-35364/docmosis-private-endpoint"
+  source                   = "git@github.com:hmcts/cnp-module-storage-account?ref=master"
   env                      = var.env
   storage_account_name     = "${var.product}${var.env}sa"
   resource_group_name      = azurerm_resource_group.infrastructure_resource_group.name
