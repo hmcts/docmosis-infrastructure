@@ -36,6 +36,13 @@ data "azurerm_subnet" "aks_01_subnet" {
   resource_group_name  = data.azurerm_virtual_network.aks_vnet.resource_group_name
 }
 
+data "azurerm_subnet" "private_endpoints" {
+  provider             = azurerm.aks
+  name                 = "private-endpoints"
+  virtual_network_name = data.azurerm_virtual_network.aks_vnet.name
+  resource_group_name  = data.azurerm_virtual_network.aks_vnet.resource_group_name
+}
+
 data "azurerm_virtual_network" "vpn_vnet" {
   provider            = azurerm.vpn
   name                = "mgmt-vpn-2-vnet"
