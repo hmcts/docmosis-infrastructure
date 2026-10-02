@@ -1,2 +1,2 @@
-vnet_address_space     = "10.10.14.0/24"
-subnet1_address_prefix = "10.10.14.0/28"
+vnet_address_space     = "10.30.1.0/24"
+subnet1_address_prefix = "10.30.1.0/28"
