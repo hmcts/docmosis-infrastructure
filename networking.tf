@@ -29,3 +29,25 @@ module "networking" {
     }
   }
 }
+
+module "vnet_peer_hub_sbox" {
+  source = "github.com/hmcts/terraform-module-vnet-peering"
+
+  peerings = {
+    source = {
+      name           = "hub"
+      vnet           = module.networking.vnet["vnet"].name
+      resource_group = module.networking.vnet["vnet"].resource_group
+    }
+    target = {
+      name           = format("%s%s", var.project, var.env)
+      vnet           = local.hub[local.hub_name].ukSouth.name
+      resource_group = local.hub[local.hub_name].ukSouth.name
+    }
+  }
+
+  providers = {
+    azurerm.initiator = azurerm
+    azurerm.target    = azurerm.hub
+  }
+}
