@@ -59,7 +59,3 @@ variable "vnet_address_space" {
 variable "subnet1_address_prefix" {
   description = "The address prefix for the first subnet"
 }
-
-variable "hub_subscription_id" {
-  description = "The subscription ID for the Hub Sandbox environment"
-}
