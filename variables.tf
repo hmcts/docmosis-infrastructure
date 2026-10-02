@@ -1,5 +1,9 @@
 variable "subscription" {}
 
+variable "aks_subscription_id" {
+  description = "The subscription ID for the AKS cluster"
+}
+
 variable "product" {
   description = "The name of your application"
   default     = "docmosis"
