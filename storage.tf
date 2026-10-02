@@ -12,7 +12,7 @@ module "this" {
     access_type = "private"
   }]
 
-  private_endpoint_subnet_id = data.azurerm_subnet.private_endpoints.id
+  private_endpoint_subnet_id = "/subscriptions/b72ab7b7-723f-4b18-b6f6-03b0f2c6a1bb/resourceGroups/cft-sbox-network-rg/providers/Microsoft.Network/virtualNetworks/cft-sbox-vnet/subnets/private-endpoints"
   sa_subnets                 = [data.azurerm_subnet.jenkins_subnet.id, data.azurerm_subnet.aks_00_subnet.id, data.azurerm_subnet.aks_01_subnet.id]
 
   common_tags = var.common_tags
