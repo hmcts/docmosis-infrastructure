@@ -40,7 +40,7 @@ module "vnet_peer_hub_sbox" {
       resource_group = module.networking.vnet["vnet"].resource_group
     }
     target = {
-      name           = format("%s%s", var.project, var.env)
+      name           = format("%s%s", var.product, var.env)
       vnet           = local.hub[local.hub_name].ukSouth.name
       resource_group = local.hub[local.hub_name].ukSouth.name
     }
