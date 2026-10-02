@@ -36,8 +36,8 @@ module "vnet_peer_hub_sbox" {
   peerings = {
     source = {
       name           = "hub"
-      vnet           = module.networking.vnet["vnet"].name
-      resource_group = module.networking.vnet["vnet"].resource_group
+      vnet           = module.networking.vnet_names["vnet"]
+      resource_group = module.networking.resource_group_name
     }
     target = {
       name           = format("%s%s", var.product, var.env)
