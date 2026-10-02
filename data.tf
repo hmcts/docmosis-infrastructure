@@ -39,8 +39,8 @@ data "azurerm_subnet" "aks_01_subnet" {
 data "azurerm_subnet" "private_endpoints" {
   provider             = azurerm.aks
   name                 = "private-endpoints"
-  virtual_network_name = data.azurerm_virtual_network.aks_vnet.name
-  resource_group_name  = data.azurerm_virtual_network.aks_vnet.resource_group_name
+  virtual_network_name = lower(data.azurerm_virtual_network.aks_vnet.name)
+  resource_group_name  = lower(data.azurerm_virtual_network.aks_vnet.resource_group_name)
 }
 
 data "azurerm_virtual_network" "vpn_vnet" {
