@@ -22,5 +22,7 @@ module "this" {
   role_assignments = [
     "Storage Blob Data Reader"
   ]
+
+  depends_on = [module.networking]
 }
 
