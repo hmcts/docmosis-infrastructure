@@ -16,4 +16,16 @@ module "networking" {
       }
     }
   }
+  route_tables = {
+    rt = {
+      subnets = ["vnet-private-endpoints"]
+      routes = {
+        default = {
+          address_prefix         = "0.0.0.0/0"
+          next_hop_type          = "VirtualAppliance"
+          next_hop_in_ip_address = "10.10.200.36/32"
+        }
+      }
+    }
+  }
 }
