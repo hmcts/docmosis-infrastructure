@@ -1,5 +1,5 @@
 resource "azurerm_role_assignment" "blob_contributors" {
-  scope                = module.this.storage_account_id
+  scope                = module.this.storageaccount_id
   role_definition_name = "Storage Blob Data Contributor"
   principal_id         = data.azuread_group.docmosis_upload.object_id
 }
