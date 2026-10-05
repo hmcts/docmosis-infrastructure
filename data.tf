@@ -55,3 +55,8 @@ data "azurerm_subnet" "vpn_subnet" {
   virtual_network_name = data.azurerm_virtual_network.vpn_vnet.name
   resource_group_name  = data.azurerm_virtual_network.vpn_vnet.resource_group_name
 }
+
+data "azuread_group" "docmosis_upload" {
+  display_name     = "DTS ${var.product} Template Upload {env:${var.env}}"
+  security_enabled = true
+}
