@@ -57,6 +57,6 @@ data "azurerm_subnet" "vpn_subnet" {
 }
 
 data "azuread_group" "docmosis_upload" {
-  display_name     = "DTS ${var.product} Template Upload {env:${var.env}}"
+  display_name     = "DTS ${var.product} Template Upload (env:${var.env})"
   security_enabled = true
 }
