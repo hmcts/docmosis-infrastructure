@@ -20,7 +20,7 @@ data "azuread_group" "example" {
   security_enabled = true
 }
 data "azurerm_role_definition" "role_name" {
-  name  = "Storage Blob Data Owner"
+  name  = "Storage Blob Data Reader"
   scope = data.azurerm_subscription.current.id
 }
 
