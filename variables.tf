@@ -1,5 +1,9 @@
 variable "subscription" {}
 
+variable "aks_subscription_id" {
+  description = "The subscription ID for the AKS cluster"
+}
+
 variable "product" {
   description = "The name of your application"
   default     = "docmosis"
@@ -36,4 +40,22 @@ variable "alert_limit_reached" {
   description = "Specifies whether the limit of 100 Activity Log Alerts has been met in the current subscription. Setting to true will create a Log Search Alert instead"
   type        = bool
   default     = false
+}
+
+variable "account_replication_type" {
+  description = "The replication type for the storage account"
+  default     = "LRS"
+}
+
+variable "account_kind" {
+  description = "The kind of the storage account"
+  default     = "StorageV2"
+}
+
+variable "vnet_address_space" {
+  description = "The address space for the virtual network"
+}
+
+variable "subnet1_address_prefix" {
+  description = "The address prefix for the first subnet"
 }
