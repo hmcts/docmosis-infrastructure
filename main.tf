@@ -21,7 +21,7 @@ data "azurerm_role_definition" "role_name" {
 
 resource "azurerm_pim_eligible_role_assignment" "this" {
   scope              = "subscriptions/${data.azurerm_client_config.current.subscription_id}"
-  role_definition_id = data.azurerm_role_definition.role_name.id
+  role_definition_id = "${data.azurerm_client_config.current.subscription_id}${data.azurerm_role_definition.role_name.id}"
   principal_id       = data.azurerm_user_assigned_identity.jenkins.client_id
 
   schedule {
