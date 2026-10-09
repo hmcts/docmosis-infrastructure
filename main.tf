@@ -13,9 +13,15 @@ data "azurerm_client_config" "current" {}
 
 resource "time_static" "pim_start" {}
 
+data "azurerm_role_definition" "role_name" {
+
+  name  = "Storage Blob Data Owner"
+  scope = data.azurerm_client_config.current.subscription_id
+}
+
 resource "azurerm_pim_eligible_role_assignment" "this" {
   scope              = "subscriptions/${data.azurerm_client_config.current.subscription_id}"
-  role_definition_id = "b7e6dc6d-f1e8-4753-8033-0f276bb0955b" # storage blob data owner
+  role_definition_id = data.azurerm_role_definition.role_name.id
   principal_id       = data.azurerm_user_assigned_identity.jenkins.client_id
 
   schedule {
